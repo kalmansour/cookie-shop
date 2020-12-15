@@ -1,4 +1,5 @@
 import styled from "styled-components/native";
+import { Icon } from "native-base";
 
 export const theme = {
   light: {
@@ -50,7 +51,7 @@ export const ButtonStyled = styled.Text`
 `;
 
 export const BakeryItemStyled = styled.Text`
-  color: ${(props) => props.theme.mainColor};
+  color: ${({ theme }) => theme.mainColor};
   font-size: 18;
   margin-top: 10;
   margin-bottom: 10;
@@ -73,10 +74,22 @@ export const BakeryDetailTitle = styled.Text`
 `;
 
 export const CookieItemStyled = styled.Text`
-  color: ${(props) => props.theme.mainColor};
+  color: ${({ theme }) => theme.mainColor};
   font-size: 18;
   margin-top: 10;
   margin-bottom: 10;
   margin-left: 16;
   width: 100%;
+`;
+
+export const TotalPrice = styled.Text`
+  color: ${({ theme }) => theme.pink};
+  font-size: 15px;
+  font-weight: bold;
+  margin-left: 10px;
+`;
+
+export const CartButtonStyled = styled(Icon)`
+  color: black;
+  margin-right: 10px;
 `;

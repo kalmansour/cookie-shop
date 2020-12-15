@@ -1,11 +1,14 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
+// import { Icon } from "native-base";
 
 const { Navigator, Screen } = createStackNavigator();
 
 import Home from "../Home";
 import BakeryList from "../BakeryList";
 import BakeryDetail from "../BakeryDetail";
+import CartList from "../CartList";
+import CartButton from "../buttons/CartButton";
 
 const RootNavigator = () => {
   return (
@@ -28,6 +31,7 @@ const RootNavigator = () => {
         options={{
           headerStyle: {
             backgroundColor: "#ffd1dc",
+            headerRight: () => <CartButton />,
           },
         }}
       />
@@ -38,14 +42,14 @@ const RootNavigator = () => {
           const { bakery } = route.params;
           return {
             title: bakery.name,
+            headerStyle: {
+              backgroundColor: "#ffd1dc",
+            },
+            headerRight: () => <CartButton />,
           };
         }}
-        options={{
-          headerStyle: {
-            backgroundColor: "#ffd1dc",
-          },
-        }}
       />
+      <Screen name="Cart" component={CartList} />
     </Navigator>
   );
 };
