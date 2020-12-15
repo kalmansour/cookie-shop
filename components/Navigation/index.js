@@ -40,6 +40,11 @@ const RootNavigator = () => {
             title: bakery.name,
           };
         }}
+        options={{
+          headerStyle: {
+            backgroundColor: "#ffd1dc",
+          },
+        }}
       />
     </Navigator>
   );
