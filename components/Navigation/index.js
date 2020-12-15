@@ -31,8 +31,8 @@ const RootNavigator = () => {
         options={{
           headerStyle: {
             backgroundColor: "#ffd1dc",
-            headerRight: () => <CartButton />,
           },
+          headerRight: CartButton,
         }}
       />
       <Screen
@@ -45,7 +45,7 @@ const RootNavigator = () => {
             headerStyle: {
               backgroundColor: "#ffd1dc",
             },
-            headerRight: () => <CartButton />,
+            headerRight: CartButton,
           };
         }}
       />
