@@ -14,7 +14,7 @@ import BackButton from "../buttons/BackButton";
 const RootNavigator = () => {
   return (
     <Navigator
-      initialRouteName="Cart"
+      initialRouteName="Home"
       screenOptions={{
         headerTintColor: "white",
         headerStyle: {
@@ -36,7 +36,7 @@ const RootNavigator = () => {
           headerTitle: null,
           headerBackImage: () => <Icon type="Entypo" name="home" />,
 
-          headerRight: CartButton,
+          headerRight: () => <CartButton />,
         }}
       />
       <Screen
@@ -50,11 +50,19 @@ const RootNavigator = () => {
               backgroundColor: "#ffd1dc",
             },
             headerTitle: <BackButton />,
-            headerRight: CartButton,
+            headerRight: () => <CartButton />,
           };
         }}
       />
-      <Screen name="Cart" component={CartList} />
+      <Screen
+        name="Cart"
+        component={CartList}
+        options={{
+          headerStyle: {
+            backgroundColor: "#ffd1dc",
+          },
+        }}
+      />
     </Navigator>
   );
 };
