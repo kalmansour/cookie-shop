@@ -10,7 +10,7 @@ const CartList = () => {
   const cartList = cartStore.items
     .map((item) => ({
       ...cookieStore.getCookieById(item.cookieId),
-      quanity: item.quanity,
+      quantity: item.quantity,
     }))
     .map((item) => <CartItem item={item} key={item.name} />);
   return <List>{cartList}</List>;

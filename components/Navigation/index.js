@@ -1,6 +1,6 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-// import { Icon } from "native-base";
+import { Icon } from "native-base";
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -9,11 +9,12 @@ import BakeryList from "../BakeryList";
 import BakeryDetail from "../BakeryDetail";
 import CartList from "../CartList";
 import CartButton from "../buttons/CartButton";
+import BackButton from "../buttons/BackButton";
 
 const RootNavigator = () => {
   return (
     <Navigator
-      initialRouteName="Home"
+      initialRouteName="Cart"
       screenOptions={{
         headerTintColor: "white",
         headerStyle: {
@@ -32,6 +33,9 @@ const RootNavigator = () => {
           headerStyle: {
             backgroundColor: "#ffd1dc",
           },
+          headerTitle: null,
+          headerBackImage: () => <Icon type="Entypo" name="home" />,
+
           headerRight: CartButton,
         }}
       />
@@ -45,6 +49,7 @@ const RootNavigator = () => {
             headerStyle: {
               backgroundColor: "#ffd1dc",
             },
+            headerTitle: <BackButton />,
             headerRight: CartButton,
           };
         }}

@@ -93,3 +93,8 @@ export const CartButtonStyled = styled(Icon)`
   color: black;
   margin-right: 10px;
 `;
+
+export const BackButtonStyled = styled(Icon)`
+  color: black;
+  margin-right: 10px;
+`;

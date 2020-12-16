@@ -1,6 +1,7 @@
 import React from "react";
 import { observer } from "mobx-react";
 import { List, Spinner, Content } from "native-base";
+// import { Icon } from "native-base";
 
 //Stores
 import bakeryStore from "../stores/bakeryStore";
@@ -15,9 +16,17 @@ const BakeryList = ({ navigation }) => {
     <BakeryItem bakery={bakery} key={bakery.id} navigation={navigation} />
   ));
   return (
-    <Content>
-      <List>{bakeryList}</List>
-    </Content>
+    <>
+      <Content>
+        <List>{bakeryList}</List>
+      </Content>
+      {/* <Icon
+        title="Back"
+        type="Entypo"
+        name="home"
+        onClick={() => this.props.navigation.goBack()}
+      /> */}
+    </>
   );
 };
 

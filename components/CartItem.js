@@ -10,9 +10,9 @@ const CartItem = ({ item }) => {
       <Body>
         <Text>{item.name}</Text>
         <Text note>
-          {item.price} KWD x {item.quanity}
+          {item.price} KWD x {item.quantity}
         </Text>
-        <TotalPrice>{item.price * item.quanity} KWD</TotalPrice>
+        <TotalPrice>{item.price * item.quantity} KWD</TotalPrice>
       </Body>
     </ListItem>
   );
