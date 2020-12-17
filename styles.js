@@ -103,3 +103,21 @@ export const CartTextStyled = styled(Text)`
   color: ${({ theme }) => theme.backgroundColor};
   font-size: 20px;
 `;
+
+export const TrashIcon = styled(Icon)`
+  color: ${({ theme }) => theme.red};
+`;
+
+export const CheckOutButton = styled.TouchableOpacity`
+  align-self: stretch;
+  align-items: center;
+  padding: 20px;
+  background-color: ${(props) => props.theme.pink};
+  margin-top: 30px;
+`;
+
+export const CheckoutButtonText = styled.Text`
+  color: #fcfdff;
+  font-weight: bold;
+  font-size: 18px;
+`;

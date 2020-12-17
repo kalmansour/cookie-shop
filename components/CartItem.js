@@ -1,12 +1,13 @@
 import React from "react";
+import { observer } from "mobx-react";
 import { useState } from "react";
-import { Button, Right, ListItem, Body } from "native-base";
+import { Right, ListItem, Body } from "native-base";
 
 import NumericInput from "react-native-numeric-input";
 import { Text } from "react-native";
 
 //Styling
-import { TotalPrice } from "../styles";
+import { TotalPrice, TrashIcon } from "../styles";
 
 //Stores
 import cartStore from "../stores/cartStore";
@@ -33,6 +34,11 @@ const CartItem = ({ item }) => {
             onPress={handleUpdate}
             // initValue={cartItemQuantity}
           />
+          <TrashIcon
+            name="trash"
+            type="Ionicons"
+            onPress={() => cartStore.removeItemFromCart(item.id)}
+          />
         </Right>
         {/* <Text note>
           {item.price} KWD x {item.quantity}
@@ -43,4 +49,4 @@ const CartItem = ({ item }) => {
   );
 };
 
-export default CartItem;
+export default observer(CartItem);

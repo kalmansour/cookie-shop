@@ -1,5 +1,6 @@
 import { makeAutoObservable } from "mobx";
 import AsyncStorage from "@react-native-community/async-storage";
+import instance from "./instance";
 
 class CartStore {
   items = [];
@@ -24,6 +25,21 @@ class CartStore {
     await AsyncStorage.setItem("myCart", JSON.stringify(this.items));
   };
 
+  removeItemFromCart = async (itemId) => {
+    this.items = this.items.filter((item) => item.cookieId !== itemId);
+    await AsyncStorage.setItem("myCart", JSON.stringify(this.items));
+  };
+
+  checkout = async () => {
+    try {
+      // const res = await instance.post("/checkout", this.items);
+      this.items = [];
+      alert("Your cookies are on their way");
+    } catch (error) {
+      console.log("CartStore -> checkout -> res", res.data);
+    }
+  };
+
   updateItemInCart = async (updatedItem) => {
     // console.log(updatedItem);
     const foundItem = this.items.find(
@@ -44,5 +60,5 @@ class CartStore {
 }
 
 const cartStore = new CartStore();
-// cartStore.fetchCart();
+cartStore.fetchCart();
 export default cartStore;
