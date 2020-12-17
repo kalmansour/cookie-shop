@@ -4,10 +4,15 @@ import { Icon } from "native-base";
 
 const { Navigator, Screen } = createStackNavigator();
 
+// Components
 import Home from "../Home";
 import BakeryList from "../BakeryList";
 import BakeryDetail from "../BakeryDetail";
 import CartList from "../CartList";
+import Signin from "../authentication/Signin";
+import Signup from "../authentication/Signup";
+
+//Buttons
 import CartButton from "../buttons/CartButton";
 import BackButton from "../buttons/BackButton";
 
@@ -62,6 +67,16 @@ const RootNavigator = () => {
             backgroundColor: "#ffd1dc",
           },
         }}
+      />
+      <Screen
+        name="Signin"
+        component={Signin}
+        options={{ headerShown: false }}
+      />
+      <Screen
+        name="Signup"
+        component={Signup}
+        options={{ headerShown: false }}
       />
     </Navigator>
   );

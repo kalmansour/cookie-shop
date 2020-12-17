@@ -1,10 +1,10 @@
 import React from "react";
 import { observer } from "mobx-react";
 import { useState } from "react";
-import { Right, ListItem, Body } from "native-base";
+import { Right, ListItem, Body, Left } from "native-base";
 
 import NumericInput from "react-native-numeric-input";
-import { Text } from "react-native";
+import { Text, Image } from "react-native";
 
 //Styling
 import { TotalPrice, TrashIcon } from "../styles";
@@ -22,29 +22,34 @@ const CartItem = ({ item }) => {
   };
   return (
     <ListItem>
-      <Body>
+      <Left>
+        <Image
+          style={{ width: 100, height: 100 }}
+          source={{ uri: item.image }}
+        />
         <Text>{item.name}</Text>
-        <Right>
-          <NumericInput
-            rounded
-            value={cartItemQuantity}
-            onChange={setCartItemQuantity}
-            totalHeight={30}
-            totalWidth={60}
-            onPress={handleUpdate}
-            // initValue={cartItemQuantity}
-          />
-          <TrashIcon
-            name="trash"
-            type="Ionicons"
-            onPress={() => cartStore.removeItemFromCart(item.id)}
-          />
-        </Right>
-        {/* <Text note>
-          {item.price} KWD x {item.quantity}
-        </Text> */}
-        <TotalPrice>{item.price * item.quantity} KWD</TotalPrice>
+      </Left>
+      <Body>
+        <NumericInput
+          rounded
+          value={cartItemQuantity}
+          onChange={setCartItemQuantity}
+          totalHeight={30}
+          totalWidth={60}
+          onPress={handleUpdate}
+          // initValue={cartItemQuantity}
+        />
+        <TotalPrice style={{ marginLeft: 100 }}>
+          {item.price * item.quantity} KWD
+        </TotalPrice>
       </Body>
+      <Right>
+        <TrashIcon
+          name="trash"
+          type="Ionicons"
+          onPress={() => cartStore.removeItemFromCart(item.id)}
+        />
+      </Right>
     </ListItem>
   );
 };

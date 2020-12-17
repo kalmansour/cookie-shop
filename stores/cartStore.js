@@ -41,13 +41,12 @@ class CartStore {
   };
 
   updateItemInCart = async (updatedItem) => {
-    // console.log(updatedItem);
     const foundItem = this.items.find(
       (item) => item.cookieId === updatedItem.cookieId
     );
-    if (foundItem.quantity === 0)
-      this.items = item.cookieId !== updatedItem.cookieId;
+    if (foundItem.quantity === 0) this.removeItemFromCart(updatedItem.cookieId);
     else foundItem.quantity = updatedItem.quantity;
+    console.log(foundItem.quantity);
     await AsyncStorage.setItem("myCart", JSON.stringify(this.items));
   };
 
