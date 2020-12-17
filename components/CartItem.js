@@ -1,7 +1,7 @@
 import React from "react";
 import { observer } from "mobx-react";
 import { useState } from "react";
-import { Right, ListItem, Body, Left } from "native-base";
+import { Button, Right, ListItem, Body, Left } from "native-base";
 
 import NumericInput from "react-native-numeric-input";
 import { Text, Image } from "react-native";
@@ -16,7 +16,7 @@ const CartItem = ({ item }) => {
   const [cartItemQuantity, setCartItemQuantity] = useState(item.quantity);
 
   const handleUpdate = () => {
-    const updatedItem = { quantity: cartItemQuantity, cookieId: cookie.id };
+    const updatedItem = { quantity: cartItemQuantity, cookieId: item.id };
     console.log("handleUpdate -> updatedItem", updatedItem);
     cartStore.updateItemInCart(updatedItem);
   };
@@ -36,9 +36,12 @@ const CartItem = ({ item }) => {
           onChange={setCartItemQuantity}
           totalHeight={30}
           totalWidth={60}
-          onPress={handleUpdate}
+          // onPress={handleUpdate}
           // initValue={cartItemQuantity}
         />
+        <Button onPress={handleUpdate}>
+          <Text>Update</Text>
+        </Button>
         <TotalPrice style={{ marginLeft: 100 }}>
           {item.price * item.quantity} KWD
         </TotalPrice>
