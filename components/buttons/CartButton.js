@@ -40,6 +40,7 @@ const CartButton = () => {
         type="MaterialCommunityCartButtonStyleds"
         name="cart"
       ></CartButtonStyled>
+      <CartTextStyled>KWD {cartStore.totalPrice}</CartTextStyled>
     </Button>
   );
 };

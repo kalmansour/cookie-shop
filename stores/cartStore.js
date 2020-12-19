@@ -1,6 +1,7 @@
 import { makeAutoObservable } from "mobx";
 import AsyncStorage from "@react-native-community/async-storage";
-import instance from "./instance";
+// import instance from "./instance";
+import cookieStore from "./cookieStore";
 
 class CartStore {
   items = [];
@@ -46,14 +47,24 @@ class CartStore {
     );
     if (foundItem.quantity === 0) this.removeItemFromCart(updatedItem.cookieId);
     else foundItem.quantity = updatedItem.quantity;
-    console.log(foundItem.quantity);
     await AsyncStorage.setItem("myCart", JSON.stringify(this.items));
   };
 
-  //Computed Property,  value depends on store's properties which is `this.items`
+  //getter - Computed Property,  value depends on store's properties which is `this.items`
   get totalQuantity() {
     let total = 0;
     this.items.forEach((item) => (total += item.quantity));
+    return total;
+  }
+
+  get totalPrice() {
+    let total = 0;
+    this.items
+      .map((item) => ({
+        ...cookieStore.getCookieById(item.cookieId),
+        quantity: item.quantity,
+      }))
+      .forEach((item) => (total += item.price * item.quantity));
     return total;
   }
 }

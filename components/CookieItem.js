@@ -6,7 +6,12 @@ import NumericInput from "react-native-numeric-input";
 import { Text } from "react-native";
 
 //Styling
-import { CookieItemStyled } from "../styles";
+import {
+  CookieItemStyled,
+  AddCookieButtonStyled,
+  AddCookieTextStyled,
+  CookieImage,
+} from "../styles";
 
 //Stores
 import cartStore from "../stores/cartStore";
@@ -23,24 +28,26 @@ const CookieItem = ({ cookie }) => {
   return (
     <ListItem>
       <Left>
-        <Image
-          style={{ width: 100, height: 100 }}
-          source={{ uri: cookie.image }}
-        />
-        <CookieItemStyled>{cookie.name}</CookieItemStyled>
+        <CookieImage source={{ uri: cookie.image }} />
+        <CookieItemStyled>
+          {cookie.name} {"\n"}
+          <Text note style={{ fontSize: 16, color: "#444" }}>
+            KWD {cookie.price}
+          </Text>
+        </CookieItemStyled>
       </Left>
       <Right>
         <NumericInput
           rounded
           value={quantity}
           onChange={setQuantity}
-          totalHeight={30}
-          totalWidth={60}
+          totalHeight={40}
+          totalWidth={70}
           initValue={quantity}
         />
-        <Button onPress={handleAdd}>
-          <Text>Add</Text>
-        </Button>
+        <AddCookieButtonStyled onPress={handleAdd}>
+          <AddCookieTextStyled>Add</AddCookieTextStyled>
+        </AddCookieButtonStyled>
       </Right>
     </ListItem>
   );

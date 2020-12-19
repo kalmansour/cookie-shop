@@ -1,5 +1,5 @@
 import styled from "styled-components/native";
-import { Icon, Text } from "native-base";
+import { Icon, Text, Button } from "native-base";
 
 export const theme = {
   light: {
@@ -22,16 +22,16 @@ export const AuthContainer = styled.View`
   align-self: stretch;
   justify-content: center;
   align-items: center;
-  background-color: ${(props) => props.theme.backgroundColor};
+  background-color: ${({ theme }) => theme.backgroundColor};
   padding-right: 60px;
   padding-left: 60px;
 `;
 
 export const AuthTitle = styled.Text`
-  color: ${(props) => props.theme.pink};
+  color: ${({ theme }) => theme.pink};
   font-size: 24px;
   margin-bottom: 20px;
-  border-bottom-color: ${(props) => props.theme.pink};
+  border-bottom-color: ${({ theme }) => theme.pink};
 `;
 
 export const AuthTextInput = styled.TextInput`
@@ -39,8 +39,8 @@ export const AuthTextInput = styled.TextInput`
   text-align: left;
   height: 40px;
   margin-bottom: 30px;
-  color: ${(props) => props.theme.pink};
-  border-bottom-color: ${(props) => props.theme.pink};
+  color: ${({ theme }) => theme.pink};
+  border-bottom-color: ${({ theme }) => theme.pink};
   border-bottom-width: 1px;
 `;
 
@@ -48,7 +48,7 @@ export const AuthButton = styled.TouchableOpacity`
   align-self: stretch;
   align-items: center;
   padding: 20px;
-  background-color: ${(props) => props.theme.pink};
+  background-color: ${({ theme }) => theme.pink};
   margin-top: 30px;
 `;
 
@@ -59,8 +59,14 @@ export const AuthButtonText = styled.Text`
 `;
 
 export const AuthOther = styled.Text`
-  color: ${(props) => props.theme.pink};
+  color: ${({ theme }) => theme.pink};
   margin-top: 15px;
+`;
+
+export const EmptyCartBackground = styled.ImageBackground`
+  flex: 1;
+  width: 100%;
+  height: 100;
 `;
 
 //Home Styling
@@ -112,13 +118,19 @@ export const BakeryDetailWrapper = styled.View`
 `;
 
 export const BakeryDetailImage = styled.Image`
-  width: 150;
+  width: 300;
   height: 150;
+  margin-right: auto;
+  margin-left: auto;
 `;
 
 export const BakeryDetailTitle = styled.Text`
+  color: ${({ theme }) => theme.mainColor};
   font-weight: bold;
-  font-size: 40;
+  font-size: 35;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 10;
 `;
 
 export const CookieItemStyled = styled.Text`
@@ -145,6 +157,7 @@ export const CartButtonStyled = styled(Icon)`
 export const BackButtonStyled = styled(Icon)`
   color: black;
   margin-right: 10px;
+  padding-left: 20;
 `;
 
 export const CartTextStyled = styled(Text)`
@@ -157,15 +170,60 @@ export const TrashIcon = styled(Icon)`
 `;
 
 export const CheckOutButton = styled.TouchableOpacity`
-  align-self: stretch;
-  align-items: center;
-  padding: 20px;
-  background-color: ${(props) => props.theme.pink};
-  margin-top: 30px;
+  background-color: ${({ theme }) => theme.pink};
 `;
 
 export const CheckoutButtonText = styled.Text`
   color: #fcfdff;
   font-weight: bold;
   font-size: 18px;
+`;
+
+export const AddCookieButtonStyled = styled(Button)`
+  height: 35;
+  width: 70;
+  margin-top: 10;
+  background-color: ${({ theme }) => theme.mainColor};
+`;
+
+export const AddCookieTextStyled = styled.Text`
+  text-align: center;
+  color: white;
+  font-size: 16;
+  font-weight: bold;
+  flex: 1;
+`;
+
+export const CookieImage = styled.Image`
+  width: 100;
+  height: 100;
+`;
+
+export const UpdateQuantityButtonStyled = styled(Button)`
+  height: 35;
+  width: 70;
+  margin-top: 10;
+  background-color: ${({ theme }) => theme.mainColor};
+`;
+
+export const UpdateTextStyled = styled.Text`
+  text-align: center;
+  color: white;
+  font-size: 16;
+  font-weight: bold;
+  flex: 1;
+`;
+
+export const CartItemImage = styled.Image`
+  width: 100;
+  height: 100;
+`;
+
+export const CartItemStyled = styled.Text`
+  color: ${({ theme }) => theme.mainColor};
+  font-size: 18;
+  margin-top: 10;
+  margin-bottom: 10;
+  margin-left: 16;
+  width: 100%;
 `;

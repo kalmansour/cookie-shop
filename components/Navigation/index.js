@@ -1,6 +1,7 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { Icon } from "native-base";
+import { HeaderBackButton } from "@react-navigation/stack";
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -38,8 +39,12 @@ const RootNavigator = () => {
           headerStyle: {
             backgroundColor: "#ffd1dc",
           },
+          headerBackImage: () => (
+            <Icon type="Entypo" name="home" style={{ paddingLeft: 30 }} />
+          ),
           headerTitle: null,
-          headerBackImage: () => <Icon type="Entypo" name="home" />,
+          headerBackTitle: null,
+          headerBackTitleVisible: null,
 
           headerRight: () => <CartButton />,
         }}
@@ -54,7 +59,9 @@ const RootNavigator = () => {
             headerStyle: {
               backgroundColor: "#ffd1dc",
             },
-            headerTitle: <BackButton />,
+            headerTitle: null,
+            headerBackTitleVisible: null,
+            headerBackImage: () => <BackButton />,
             headerRight: () => <CartButton />,
           };
         }}
@@ -66,6 +73,11 @@ const RootNavigator = () => {
           headerStyle: {
             backgroundColor: "#ffd1dc",
           },
+          headerTitle: null,
+          headerBackTitle: null,
+          headerBackTitleVisible: null,
+          headerBackImage: () => <BackButton />,
+          headerRight: () => <CartButton />,
         }}
       />
       <Screen
@@ -76,7 +88,7 @@ const RootNavigator = () => {
       <Screen
         name="Signup"
         component={Signup}
-        options={{ headerShown: false }}
+        options={{ headerShown: false, headerBackTitle: null }}
       />
     </Navigator>
   );

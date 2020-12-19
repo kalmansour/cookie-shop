@@ -16,8 +16,7 @@ const Home = ({ navigation }) => {
     <HomeBackground
       style={{ flex: 1, width: "100%", height: "100%" }}
       source={{
-        uri:
-          "https://annabanana.co/wp-content/uploads/2020/03/Chocolate-Chip-Cookies-22.jpg",
+        uri: "https://wallpaperaccess.com/full/1572380.jpg",
       }}
     >
       <OverLayContainer>
@@ -28,12 +27,22 @@ const Home = ({ navigation }) => {
             justifyContent: "center",
           }}
         >
-          <Title style={{ color: "#000", fontSize: 38, TitleAlign: "center" }}>
+          <Title
+            style={{
+              color: "pink",
+              fontSize: 38,
+              TitleAlign: "center",
+              fontWeight: "bold",
+            }}
+          >
             Cookies and Dream
           </Title>
         </TopStyling>
         <BottomStyling>
-          <ButtonStyled onPress={() => navigation.navigate("BakeryList")}>
+          <ButtonStyled
+            style={{ color: "pink", fontSize: 30, TitleAlign: "center" }}
+            onPress={() => navigation.navigate("BakeryList")}
+          >
             Click here to skip
           </ButtonStyled>
         </BottomStyling>
