@@ -1,6 +1,6 @@
 import { makeAutoObservable } from "mobx";
 import AsyncStorage from "@react-native-community/async-storage";
-// import instance from "./instance";
+import instance from "./instance";
 import cookieStore from "./cookieStore";
 
 class CartStore {
@@ -9,8 +9,6 @@ class CartStore {
   constructor() {
     makeAutoObservable(this);
   }
-
-  //
 
   fetchCart = async () => {
     const items = await AsyncStorage.getItem("myCart");
@@ -33,12 +31,11 @@ class CartStore {
 
   checkout = async () => {
     try {
-      // const res = await instance.post("/checkout", this.items);
+      const res = await instance.post("/checkout", this.items);
+      console.log("CartStore -> checkout -> res", res.data);
       this.items = [];
       alert("Your cookies are on their way");
-    } catch (error) {
-      console.log("CartStore -> checkout -> res", res.data);
-    }
+    } catch (error) {}
   };
 
   updateItemInCart = async (updatedItem) => {
